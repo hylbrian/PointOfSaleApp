@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //TODO: make it add button later
+                //this is just a test
                 // for now just practice showing an item
                 mCurrentItem = Item.getDefaultItem();
                 showCurrentItem();
