@@ -1,6 +1,8 @@
 package ie.ul.brianhyland.pointofsale;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -60,13 +62,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // TODO: later
+        switch (item.getItemId()){
+            case R.id.action_reset:
+                mCurrentItem = new Item();
+                showCurrentItem();
+                return true;
+            case R.id.action_settings:
+                //startActivity(new Intent(Settings.ACTION_SETTINGS));
+                startActivity(new Intent(Settings.ACTION_LOCALE_SETTINGS));
+                return true;
 
-        int id = item.getItemId();
 
-
-        if (id == R.id.action_settings) {
-            return true;
         }
+
+
 
         return super.onOptionsItemSelected(item);
     }
