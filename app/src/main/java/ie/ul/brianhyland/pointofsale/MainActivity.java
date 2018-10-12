@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         mQuantityTextView = findViewById(R.id.quantity_text);
         mDateTextView = findViewById(R.id.date_text);
 
-        unregisterForContextMenu(mNameTextView);
+        registerForContextMenu(mNameTextView);
 
         mItems = new ArrayList<>();
 
@@ -131,7 +131,10 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.action_remove:
-                Toast.makeText(this,"TODO Remove", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this,"TODO Remove", Toast.LENGTH_SHORT).show();
+                mItems.remove(mCurrentItem);
+                mCurrentItem = new Item();
+                showCurrentItem();
                 return true;
         }
         return super.onContextItemSelected(item);
