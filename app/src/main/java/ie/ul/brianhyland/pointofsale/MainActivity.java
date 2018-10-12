@@ -143,12 +143,34 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(Settings.ACTION_LOCALE_SETTINGS));
                 return true;
 
+            case R.id.action_clear_all:
+                clearAllDialog();
+                return true;
+
 
         }
 
 
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void clearAllDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Remove");
+
+        builder.setMessage("Are you sure you want to remove all items?");
+
+        builder.setPositiveButton(android.R.string.ok, null);{
+            mItems.clear();
+            
+
+            }
+
+
+        builder.setNegativeButton(android.R.string.cancel, null);{
+
+        builder.create().show();}
     }
 
     private void showSearchDialog() {
